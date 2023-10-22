@@ -4,18 +4,29 @@ const mysql = require('mysql');
 const express = require('express');  
 var app = express();  
 const bodyparser = require('body-parser');  
-const port = 3000;
+//const port = process.env.port |3000;
+const port = process.env.port |3306;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
 // Connection String to Database   
+// var mysqlConnection = mysql.createConnection({  
+//     host: 'localhost',  
+//     user : 'root',  
+//     password : 'root',   
+//     database : 'DemoApi',  
+//     multipleStatements : true  
+// });  
+
+
 var mysqlConnection = mysql.createConnection({  
-    host: 'localhost',  
+    host: '127.0.0.1',  
     user : 'root',  
     password : 'root',   
     database : 'DemoApi',  
     multipleStatements : true  
-});  
+}); 
+
   
 // To check whether the connection is succeed for Failed while running the project in console.  
 mysqlConnection.connect((err) => {  
