@@ -9,7 +9,7 @@ const port = 3000;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
-// Connection String to Database  
+// Connection String to Database   
 var mysqlConnection = mysql.createConnection({  
     host: 'localhost',  
     user : 'root',  
