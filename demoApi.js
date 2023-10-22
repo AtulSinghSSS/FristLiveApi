@@ -5,7 +5,7 @@ const express = require('express');
 var app = express();  
 const bodyparser = require('body-parser');  
 //const port = process.env.port |3000;
-const port = process.env.port |3306;
+//const port = process.env.port |3306;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
@@ -23,7 +23,8 @@ var mysqlConnection = mysql.createConnection({
     host: '127.0.0.1',  
     user : 'root',  
     password : 'root',   
-    database : 'DemoApi',  
+    database : 'DemoApi',
+    porta: 3307,  
     multipleStatements : true  
 }); 
 
@@ -39,7 +40,7 @@ mysqlConnection.connect((err) => {
 });  
   
 // To Run the server with Port Number  
-app.listen(port,()=> console.log(`Server is running at http://localhost:${port}/`));
+//app.listen(port,()=> console.log(`Server is running at http://localhost:${port}/`));
 
 
   
