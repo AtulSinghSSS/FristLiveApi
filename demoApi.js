@@ -29,9 +29,18 @@ mysqlConnection.connect((err) => {
   
 // To Run the server with Port Number  
 app.listen(port,()=> console.log(`Server is running at http://localhost:${port}/`));
+
+
   
   
 // Insert an Employee through the Stored Procedure
+
+app.get('/', (req, res) => {
+    let emp = req.body;
+    res.send("Successfully");
+});
+
+
 app.post('/InsertEmployees', (req, res) => {
     let emp = req.body;
     var sql = "CALL InsertEmployees(?, ?, ?, ?)";
