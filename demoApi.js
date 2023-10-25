@@ -4,31 +4,19 @@ const mysql = require('mysql');
 const express = require('express');  
 var app = express();  
 const bodyparser = require('body-parser');  
-//const port = process.env.port |3000;
-//const port = process.env.port |3306;
+const port = process.env.port |3000;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
-// Connection String to Database   
-// var mysqlConnection = mysql.createConnection({  
-//     host: 'localhost',  
-//     user : 'root',  
-//     password : 'root',   
-//     database : 'DemoApi',  
-//     multipleStatements : true  
-// });  
-
 
 var mysqlConnection = mysql.createConnection({  
-    host: '127.0.0.1',  
+    host: 'localhost',  
     user : 'root',  
     password : 'root',   
-    database : 'DemoApi',
-    porta: 3307,  
+    database : 'DemoApi',  
     multipleStatements : true  
-}); 
-
-  
+});  
+ 
 // To check whether the connection is succeed for Failed while running the project in console.  
 mysqlConnection.connect((err) => {  
     if(!err) {  
@@ -40,15 +28,9 @@ mysqlConnection.connect((err) => {
 });  
   
 // To Run the server with Port Number  
-//app.listen(port,()=> console.log(`Server is running at http://localhost:${port}/`));
+app.listen(port,()=> console.log(`Server is running at  http://localhost:${port}/`));
   
 // Insert an Employee through the Stored Procedure
-
-app.get('/', (req, res) => {
-    let emp = req.body;
-    res.send("Successfully");
-});
-
 
 app.post('/InsertEmployees', (req, res) => {
     let emp = req.body;
