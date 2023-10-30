@@ -4,16 +4,16 @@ const mysql = require('mysql');
 const express = require('express');  
 var app = express();  
 const bodyparser = require('body-parser');  
-const port = process.env.port |3000;
+const port = 3306;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
 
 var mysqlConnection = mysql.createConnection({  
-    host: 'localhost',  
-    user : 'root',  
-    password : 'root',   
-    database : 'DemoApi',  
+    host: 'sql.freedb.tech',  
+    user : 'freedb_demoApi',  
+    password : '$7vembZES53EG46',   
+    database : 'freedb_demoApi',  
     multipleStatements : true  
 });  
  
