@@ -7,7 +7,8 @@ const bodyparser = require('body-parser');
 const port = process.env.port || 3000;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
-  
+
+
 var mysqlConnection = mysql.createConnection({  
     host: 'sql.freedb.tech',  
     user : 'freedb_demoApi',  
