@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const express = require('express');  
 var app = express();  
 const bodyparser = require('body-parser');  
-const port = 3306;
+const port = process.env.port || 3000;
 // Used for sending the Json Data to Node API  
 app.use(bodyparser.json());  
   
